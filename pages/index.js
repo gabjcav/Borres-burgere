@@ -1,8 +1,14 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
+import NavBar from '../components/NavBar';
+import NavContainer from '../components/NavBar';
+import GlobalStyle from '../components/GlobalStyle';
 export default function Home() {
-return(
-  <h1>Hello</h1>
-)
+  return(
+      <>
+        <GlobalStyle />
+        <NavContainer as='main'>
+          <NavBar />
+        </NavContainer>
+      </>
+    
+  )
 }
