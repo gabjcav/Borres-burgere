@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const NavContainer = styled.nav`
     width: 250px;
     position: fixed;
-    background-color: blue; 
+    background-color: #6c6cff; 
     height: 100%;
     ul{
         list-style: none;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const MainContainer = styled.main`
     margin-left: 250px;
-    background-color: red; 
+    background-color: #ff9090; 
     min-height: 100%; 
     h1{
         margin: 0 auto; 
