@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-
+// import logo from '../../public/img/logo.png'
 
 export const NavContainer = styled.nav`
-    width: 250px;
+    width: 300px;
     position: fixed;
-    background-color: #6c6cff; 
+    background-color: #2e0e0e; 
     height: 100%;
+    color: white; 
     ul{
         list-style: none;
     }
@@ -33,22 +34,22 @@ const NavBar = () => {
         <NavContainer>
             <ul>
                 <li>
-                    <Link href="/">LOGO</Link>
+                    <Link href="/">Logo</Link>
                 </li>
                 <li>
-                    <Link href="/burgers">Burgers</Link>
+                    <Link href="/burgers">Burgere</Link>
                 </li>
                 <li>
-                    <Link href="/chicken-burgers">Chicken burgers</Link>
+                    <Link href="/chicken-burgers">Kyllingburgere</Link>
                 </li>
                 <li>
                     <Link href="/fries">Fries</Link>
                 </li>
                 <li>
-                    <Link href="/drinks">Drinks</Link>
+                    <Link href="/drinks">Drikke</Link>
                 </li>
                 <li>
-                    <Link href="/">Login</Link>
+                    <Link href="/login">Logg inn</Link>
                 </li>
                     
 

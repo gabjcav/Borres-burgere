@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const MainContainer = styled.main`
-    margin-left: 250px;
+    margin-left: 300px;
     background-color: #ff9090; 
     min-height: 100%; 
     h1{
