@@ -1,7 +1,5 @@
 import LoginContainer from '../components/LoginContainer';
-import MainContainer from '../components/MainContainer';
-import NavBar from '../components/NavBar';
-
+import Link from 'next/link';
 const Login = () => {
 
     console.log("Logget inn");
@@ -15,7 +13,14 @@ const Login = () => {
                     <input type="text" name="username" id="username"/>
                     <input type="password" name="password" id="password"/>
                 </div>
-                <button>Logg inn</button>
+                <div>
+                    <button>Logg inn</button>
+                    <Link href='/'>
+                        <button>Tilbake</button>
+                    </Link>
+                    
+                </div>
+                
             </LoginContainer>
         
     )

@@ -21,6 +21,7 @@ const LoginContainer = styled.div`
     button{
         width: 80px; 
         height: 50px; 
+        cursor: pointer;
     }
 `
 
