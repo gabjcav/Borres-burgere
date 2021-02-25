@@ -63,10 +63,16 @@ export const NavContainer = styled.nav`
         margin-top: 50px; 
     }
     .logo{
-        cursor: pointer;
+        cursor: pointer;    
+        align-self: center;
+        justify-self: center; 
       
     }
-    
+    #logo-container{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
 `;
 
 
@@ -75,7 +81,12 @@ const NavBar = () => {
         <NavContainer>
             <ul>
                 <li>
-                    <Link href="/"><Image className="logo" src='/img/logofinal.svg' width='100%' height='100%'/></Link>
+                    <div className="logo-container">
+                        <Link href="/">
+                            <Image className="logo" src='/img/logofinal.svg' width='100%' height='100%'/>
+                        </Link>
+                    </div>
+                    
                     <div className="line"></div>
                 </li>
                 

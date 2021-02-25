@@ -22,10 +22,12 @@ const MainContainer = styled.main`
         border: none; 
         cursor: pointer; 
         border-radius: 6px; 
+        border: 2px solid #5a6b86;
+        transition: .5s ease; 
         :hover{
             color: #5a6b86;
             background-color: white; 
-            border: 2px solid #5a6b86; 
+             
         }
     }
     

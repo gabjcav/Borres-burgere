@@ -9,7 +9,7 @@ const Burgers = () => {
                 <NavBar />
             </NavContainer>
             <MainContainer>
-                <PageTitle>Burgers</PageTitle>
+                <PageTitle>Burgere</PageTitle>
             </MainContainer>
         </>
     )
