@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
+
 export const NavContainer = styled.nav`
     width: 350px;
     position: fixed;
@@ -10,22 +11,48 @@ export const NavContainer = styled.nav`
     color: white; 
     font-family: 'Impact', sans-serif;
     margin: 0;
+    -webkit-box-shadow: 2px 1px 7px 2px #9b9b9b;
+
     ul{
         list-style: none;
         margin: 0;
+        margin-top: 9%; 
     }
     li{
         font-size: 2.5rem;
         margin-bottom: 30px; 
         padding: 10px; 
 
-
         :nth-child(1){
-            color: white; 
+            :hover{
+                color: #9db8e6; 
+            }
         }
-
+        :nth-child(2){
+            :hover{
+                color: #9db8e6; 
+            }
+        }
+        :nth-child(3){
+            :hover{
+                color: #9db8e6; 
+            }
+        }
+        :nth-child(4){
+            :hover{
+                color: #9db8e6; 
+            }
+        }
+        :nth-child(5){
+            :hover{
+                color: #9db8e6; 
+            }
+        }
         :nth-child(6){
             margin-top: 400px;  
+            :hover{
+                color: #9db8e6; 
+            }
         }
     }
 
@@ -33,13 +60,13 @@ export const NavContainer = styled.nav`
         background-color: #ffffff;
         height: 3px;
         width : 85%;
+        margin-top: 50px; 
     }
     .logo{
         cursor: pointer;
+      
     }
-    #bot-line{
-        margin-top: 50px; 
-    }
+    
 `;
 
 
@@ -63,7 +90,7 @@ const NavBar = () => {
                 </li>
                 <li>
                     <Link href="/drinks">Drikke</Link>
-                    <div id="bot-line" className="line"></div>
+                    <div className="line"></div>
                 </li>
                 <li>
                     <Link href="/login">Logg inn</Link>

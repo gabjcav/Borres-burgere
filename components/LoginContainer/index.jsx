@@ -4,7 +4,10 @@ const LoginContainer = styled.div`
     height: 600px;
     width: 450px;
     display: grid; 
-    background-color: #2e0e0e;
+    background-color: #5a6b86;
+    margin: 0 auto; 
+    padding: 10px; 
+    -webkit-box-shadow: 0px 2px 9px 2px #9b9b9b;
     h1{
         color: white; 
         margin: 0 auto; 
@@ -14,14 +17,21 @@ const LoginContainer = styled.div`
         flex-direction:column;
         gap: 20px;
         input{
-            border: 3px solid #6d6d6d; 
-            background: #c8c8c8;
+            border: 1px solid #3d3d3d; 
+            background: #ffffff;
+        }
+        label{
+            color: white;
         }
     }
     button{
-        width: 80px; 
-        height: 50px; 
+        width: 70px; 
+        height: 40px; 
         cursor: pointer;
+    }
+    #btn-container{
+        display: flex; 
+        flex-direction: row;
     }
 `
 

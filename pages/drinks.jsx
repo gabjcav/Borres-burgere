@@ -1,7 +1,7 @@
 import NavBar from '../components/NavBar';
 import NavContainer from '../components/NavBar';
 import MainContainer from '../components/MainContainer';
-
+import PageTitle from '../components/PageTitle';
 const Drinks = () => {
     return(
         <>
@@ -9,7 +9,7 @@ const Drinks = () => {
                 <NavBar />
             </NavContainer>
             <MainContainer>
-                <h1>Drinks</h1>
+                <PageTitle>Drinks</PageTitle>
             </MainContainer>
             
         </>

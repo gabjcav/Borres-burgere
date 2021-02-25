@@ -1,6 +1,7 @@
 import NavBar from '../components/NavBar';
 import NavContainer from '../components/NavBar';
 import MainContainer from '../components/MainContainer';
+import PageTitle from '../components/PageTitle';
 const Fries = () => {
     return(
         <>
@@ -8,7 +9,7 @@ const Fries = () => {
                 <NavBar />
             </NavContainer>
             <MainContainer>
-                <h1>Fries</h1>
+                <PageTitle>Fries</PageTitle>
             </MainContainer>
         </>
     )
