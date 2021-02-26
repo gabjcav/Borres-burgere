@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LoginContainer = styled.div`
+const LoginContainer = styled.form`
     height: 600px;
     width: 450px;
     display: grid; 
@@ -8,6 +8,7 @@ const LoginContainer = styled.div`
     margin: 0 auto; 
     padding: 10px; 
     -webkit-box-shadow: 0px 2px 9px 2px #9b9b9b;
+    font-family: 'Impact', sans-serif; 
     h1{
         color: white; 
         margin: 0 auto; 
@@ -28,6 +29,10 @@ const LoginContainer = styled.div`
         width: 70px; 
         height: 40px; 
         cursor: pointer;
+        border-radius: 5px; 
+        background-color: white;
+        font-size: .7rem;
+        
     }
     #btn-container{
         display: flex; 

@@ -11,14 +11,14 @@ const MainContainer = styled.main`
     align-items: center; 
     grid-template-columns: repeat(1);
     #login-btn{
-        width: 20%; 
+        width: 30%; 
         align-self: center; 
         justify-self: center; 
         height: 70px; 
         background-color: #5a6b86; 
         color: white; 
         font-family: 'Impact', sans-serif; 
-        font-size: 2rem; 
+        font-size: 1.7rem; 
         border: none; 
         cursor: pointer; 
         border-radius: 6px; 

@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import "firebase/auth";
 
 
 const firebaseConfig = {
@@ -20,5 +19,10 @@ try {
     }
 } 
 
+
+
 const firebaseInstance = firebase; 
+
+
+
 export default firebaseInstance;

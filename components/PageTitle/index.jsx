@@ -8,8 +8,7 @@ const PageTitle = styled.h1`
         letter-spacing: 2px;
         
         #home-title{
-            font-size: 9rem;
-             
+            font-size: 5rem;
         }
 `
 
