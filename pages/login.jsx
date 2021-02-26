@@ -1,5 +1,6 @@
 import LoginContainer from '../components/LoginContainer';
 import Link from 'next/link';
+import firebase from 'firebase'; 
 const Login = () => {
 
     

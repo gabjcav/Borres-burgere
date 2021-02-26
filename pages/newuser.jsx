@@ -1,5 +1,6 @@
 import LoginContainer from '../components/LoginContainer';
 import Link from 'next/link';
+import firebase from 'firebase'; 
 const NewUser = () => {
 
     
@@ -8,12 +9,12 @@ const NewUser = () => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
         // Signed in 
-        var user = userCredential.user;
+        let user = userCredential.user;
         // ...
         })
         .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         // ..
         });
     }
