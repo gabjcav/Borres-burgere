@@ -4,10 +4,10 @@ import GlobalStyle from '../components/GlobalStyle';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import Link from 'next/link';
-import firebaseInstance from '../config/firebase';
- 
-export default function Home({ error, food }) {
 
+ 
+export default function Home() {
+  
   
   return (
     <>
