@@ -8,7 +8,7 @@ const LoginContainer = styled.form`
     margin: 0 auto; 
     padding: 10px; 
     -webkit-box-shadow: 0px 2px 9px 2px #9b9b9b;
-    font-family: 'Impact', sans-serif; 
+
     h1{
         color: white; 
         margin: 0 auto; 

@@ -17,12 +17,15 @@ try {
     if(!/already exists/.test(error.message)){
         console.error('Firebase error')
     }
-} 
+}
 
+const queryFirebase = (collection, filter) => {
+    console.log(collection, filter)
+    return firebase
+        .firestore()
+        .collection(collection)
+        .where(...filter)
+        .get()
+}
 
-
-const firebaseInstance = firebase; 
-
-
-
-export default firebaseInstance;
+export default queryFirebase;

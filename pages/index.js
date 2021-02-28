@@ -7,15 +7,10 @@ import Link from 'next/link';
 
  
 export default function Home() {
-  
+
   
   return (
     <>
-      
-    <GlobalStyle />
-    <NavContainer as='main'>
-      <NavBar />
-    </NavContainer>
     <MainContainer>
       <PageTitle><span id="home-title">VELKOMMEN</span></PageTitle>
       <Link href="/login"><button id="login-btn">Logg inn</button></Link>

@@ -104,6 +104,9 @@ const NavBar = () => {
                     <div className="line"></div>
                 </li>
                 <li>
+                    <Link href="/cart">Handlekurv</Link>
+                </li>
+                <li>
                     <Link href="/login">Logg inn</Link>
                 </li>
                     

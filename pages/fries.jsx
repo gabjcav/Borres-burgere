@@ -3,7 +3,8 @@ import NavContainer from '../components/NavBar';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
-import firebaseInstance from '../config/firebase';
+import queryFirebase from '../config/firebase';
+import InfoContainer from '../components/InfoContainer';
 const Fries = () => {
 
     const [fries, setFries] = useState(null);
@@ -11,47 +12,32 @@ const Fries = () => {
     const [fbError, setFbError] = useState(null);
 
     useEffect(() => {
-      firebaseInstance
-        .firestore()
-        .collection('food')
-        .where("type", '==', "fries")
-        .get()
+        queryFirebase('food', ["type", '==', "fries"])
         .then((result) => setFries(result.docs))
         .catch((error) => setFbError(error))
     }, [])
 
     return(
         <>
-            <NavContainer>
-                <NavBar />
-            </NavContainer>
-            <MainContainer>
-                <PageTitle>Fries</PageTitle>
-            </MainContainer>
+            <PageTitle>Fries</PageTitle>
             {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
-                {fries && <table className ="info-container">
-                  <thead>
-                    <tr>
-                      <td>Price</td>
-                      <td>Name</td>
-                      <td>Image</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* "fries?." means "if(fries)" */}
-                    {fries?.map((frie) => {
-                        //Must have .data() because firebase works like that
-                      const f = frie.data();
-                      return (
-                        <tr key={f.id}>
-                          <td>{f.price}</td>
-                          <td>{f.name}</td>
-                          <td>{f.image}</td>
-                        </tr> 
-                      ) 
-                    })}
-                  </tbody>
-                </table>}
+            {fries && <InfoContainer>
+                <h2>Meny</h2>
+                {/* "fries?." means "if(fries)" */}
+                {fries?.map((frie) => {
+                    //Must have .data() because firebase works like that
+                    const f = frie.data();
+                    return (
+                    <div key={f.id}>
+                        <p>{f.name}</p>
+                        <p>{f.price},-</p>
+                        <button>Kjøp</button>
+                        <p>{f.image}</p>
+                    </div> 
+                    ) 
+                })}
+                
+            </InfoContainer>}
         </>
     )
 }

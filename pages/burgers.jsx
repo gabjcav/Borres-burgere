@@ -1,48 +1,36 @@
-import NavBar from '../components/NavBar';
-import NavContainer from '../components/NavBar';
-import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
-import firebaseInstance from '../config/firebase';
 import { useEffect, useState } from 'react';
 import InfoContainer from '../components/InfoContainer';
-
+import queryFirebase from '../config/firebase';
 const Burgers = () => {
     const [burgers, setBurgers] = useState(null);
     const [fbError, setFbError] = useState(null);
 
     useEffect(() => {
-      firebaseInstance
-        .firestore()
-        .collection('food')
-        .where("type", '==', "burger")
-        .get()
+        queryFirebase('food', ["type", '==', "burger"])
         .then((result) => setBurgers(result.docs))
         .catch((error) => setFbError(error))
     }, [])
-      
+      console.log(fbError); 
     return(
         <>
-            <NavContainer>
-                <NavBar />
-            </NavContainer>
-            <MainContainer>
-                <PageTitle>Burgere</PageTitle>
-                {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
-                {burgers && <InfoContainer>
-                    {/* "burgers?." means "if(burgers)" */}
-                    {burgers?.map((burger) => {
-                      const b = burger.data();
-                      return (
-                        <div key={b.id}>
-                          <p>{b.name}</p>
-                          <p>{b.price},-</p>
-                          <p>{b.image}</p>
-                        </div> 
-                      ) 
-                    })}
-                </InfoContainer>}
-
-            </MainContainer>
+          <PageTitle>Burgere</PageTitle>
+          {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+          {burgers && <InfoContainer>
+            <h2>Meny</h2>
+              {/* "burgers?." means "if(burgers)" */}
+              {burgers?.map((burger) => {
+                const b = burger.data();
+                return (
+                  <div key={b.id}>
+                    <p>{b.name}</p>
+                    <p>{b.price},-</p>
+                    <button>Kjøp</button>
+                    <p>{b.image}</p>
+                  </div> 
+                ) 
+              })}
+          </InfoContainer>}
         </>
     )
 }
