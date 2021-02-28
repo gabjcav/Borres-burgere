@@ -3,18 +3,23 @@ import NavContainer from '../components/NavBar';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import firebaseInstance from '../config/firebase';
-let food = [];
-const Burgers = ({ error, food }) => {
+import { useEffect, useState } from 'react';
+import InfoContainer from '../components/InfoContainer';
 
-    if(error !== undefined){
-    
-        return(
-          <p>An error has occured: {error}</p>
-        )
-      }
-      if(food.length !== 0){
-        console.log(food); 
-      }
+const Burgers = () => {
+    const [burgers, setBurgers] = useState(null);
+    const [fbError, setFbError] = useState(null);
+
+    useEffect(() => {
+      firebaseInstance
+        .firestore()
+        .collection('food')
+        .where("type", '==', "burger")
+        .get()
+        .then((result) => setBurgers(result.docs))
+        .catch((error) => setFbError(error))
+    }, [])
+      
     return(
         <>
             <NavContainer>
@@ -22,38 +27,25 @@ const Burgers = ({ error, food }) => {
             </NavContainer>
             <MainContainer>
                 <PageTitle>Burgere</PageTitle>
+                {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+                {burgers && <InfoContainer>
+                    {/* "burgers?." means "if(burgers)" */}
+                    {burgers?.map((burger) => {
+                      const b = burger.data();
+                      return (
+                        <div key={b.id}>
+                          <p>{b.name}</p>
+                          <p>{b.price},-</p>
+                          <p>{b.image}</p>
+                        </div> 
+                      ) 
+                    })}
+                </InfoContainer>}
+
             </MainContainer>
         </>
     )
 }
 
-Burgers.getInitialProps = async () => {
-
-    try {
-  
-      {/* await "firebaseInstance" istedenfor "firebase", instance laget config > firebase.jsx */}
-      const burgerCollection = await firebaseInstance
-        .firestore()
-        .collection('food')
-        .where("type", '==', "burger")
-        .get();
-      
-      
-      burgerCollection.forEach((item) => {
-        food.push({
-          id: item.id,
-          ...item.data()
-        })
-      })
-  
-      return { food }
-      
-    } catch (error) {
-      
-      return {
-        error: error.message
-      }
-    }
-}
 
 export default Burgers;

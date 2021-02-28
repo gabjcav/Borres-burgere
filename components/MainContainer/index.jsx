@@ -9,7 +9,9 @@ const MainContainer = styled.main`
     display: grid;
     justify-content: center; 
     align-items: center; 
-    grid-template-columns: repeat(1);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    text-align: center; 
+    
     #login-btn{
         width: 30%; 
         align-self: center; 

@@ -13,7 +13,7 @@ const firebaseConfig = {
 try {
     firebase.initializeApp(firebaseConfig);
 } catch(error) {
-        // /REGX/
+        // /REGEX/
     if(!/already exists/.test(error.message)){
         console.error('Firebase error')
     }

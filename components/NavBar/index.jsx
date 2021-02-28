@@ -66,12 +66,12 @@ export const NavContainer = styled.nav`
         cursor: pointer;    
         align-self: center;
         justify-self: center; 
+        height: 100%; 
+        
       
     }
-    #logo-container{
-        display: flex;
-        justify-content: center;
-        align-items: center; 
+    .logo-container{
+        height: 100px; 
     }
 `;
 
