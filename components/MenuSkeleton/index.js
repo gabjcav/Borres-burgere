@@ -5,7 +5,7 @@ const MenuSkeletonStyle = styled.div`
     padding: 10px;  
     color: white;
     font-family: 'Impact', sans-serif; 
-    font-size: 1.5rem; 
+    font-size: 2rem; 
     width: 80%; 
     height: 1200px; 
     margin: 0; 
@@ -26,30 +26,6 @@ const MenuSkeletonStyle = styled.div`
         align-items: center;
         justify-content: center; 
         flex-direction: column; 
-        p{
-            width: 50%; 
-            margin: 0 auto; 
-        }
-        button{
-            height: 50px; 
-            border-radius: 10px;
-            background-color: #5a6b86;
-            color: white; 
-            border: none; 
-            font-size: 1.3rem; 
-            cursor: pointer;
-            -webkit-box-shadow: 2px 2px 10px 2px #9b9b9b;
-            padding: 10px; 
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 2px; 
-            transition: .3s ease; 
-            border: 2px solid  #5a6b86; 
-            :hover{
-                color: #5a6b86;
-                background-color: white; 
-                
-            }
-        }
     }
 `
 
@@ -57,19 +33,46 @@ const MenuSkeletonStyle = styled.div`
 const MenuSkeleton = () => {
     return(
         <MenuSkeletonStyle>
-            <h1>Meny</h1>
-            <SkeletonTheme color="white" highlightColor="#5a6b86" as="div">
-                <p><Skeleton/></p>
-                <p><Skeleton/></p>
+            <h2>Meny</h2>
+            <SkeletonTheme 
+                color="white" 
+                highlightColor="#5a6b86"
+                as="div">
+                <p>
+                    <Skeleton 
+                        duration={.85}
+                        circle={true} 
+                        height={100} 
+                        width={100}
+                    />
+                </p>
             </SkeletonTheme> 
-            <SkeletonTheme color="white" highlightColor="#5a6b86" as="div">
-                <p><Skeleton/></p>
-                <p><Skeleton/></p>
+            <SkeletonTheme 
+                color="white" 
+                highlightColor="#5a6b86"
+                as="div">
+                <p>
+                    <Skeleton 
+                        duration={.85}
+                        circle={true} 
+                        height={100} 
+                        width={100}
+                    />
+                </p>
             </SkeletonTheme> 
-            <SkeletonTheme color="white" highlightColor="#5a6b86" as="div">
-                <p><Skeleton/></p>
-                <p><Skeleton/></p>
-            </SkeletonTheme> 
+            <SkeletonTheme 
+                color="white" 
+                highlightColor="#5a6b86"
+                as="div">
+                <p>
+                    <Skeleton 
+                        duration={.85}
+                        circle={true} 
+                        height={100} 
+                        width={100}
+                    />
+                </p>
+            </SkeletonTheme>  
             
         </MenuSkeletonStyle>
     )
