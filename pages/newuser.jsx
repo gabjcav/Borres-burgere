@@ -2,6 +2,7 @@ import LoginContainer from '../components/LoginContainer';
 import Link from 'next/link';
 import firebase from 'firebase'; 
 import queryFirebase from '../config/firebase';
+
 const NewUser = () => {
 
     //parse formdata

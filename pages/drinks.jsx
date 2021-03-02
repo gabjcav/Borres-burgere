@@ -2,8 +2,8 @@ import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
 import queryFirebase from '../config/firebase'; 
 import InfoContainer from '../components/InfoContainer';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import MenuSkeleton from '../components/MenuSkeleton';
-
 const Drinks = () => {
     const [drinks, setDrinks] = useState([]);
     //fbError means Firebase error
@@ -18,7 +18,11 @@ const Drinks = () => {
 
   const renderSkeleton = () => {
     return(
-      <MenuSkeleton />
+        
+          // <SkeletonTheme color="#e6e6e6" highlightColor="#whitesmoke">
+          //   <p><Skeleton duration={.8} circle={true} height={200} width={200}/></p>
+          // </SkeletonTheme>
+        <MenuSkeleton />
     )
   }
 
@@ -48,7 +52,7 @@ const Drinks = () => {
         <>
                 <PageTitle>Drikke</PageTitle>
                 {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
-                {drinks.length === 0 ? renderSkeleton() : renderData()} 
+                {(drinks.length === 0) ? renderSkeleton() : renderData()} 
                 
         </>
     )
