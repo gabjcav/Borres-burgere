@@ -2,7 +2,6 @@ import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
 import queryFirebase from '../config/firebase'; 
 import InfoContainer from '../components/InfoContainer';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import MenuSkeleton from '../components/MenuSkeleton';
 const Drinks = () => {
     const [drinks, setDrinks] = useState([]);
@@ -10,7 +9,7 @@ const Drinks = () => {
     const [fbError, setFbError] = useState(null);
 
     useEffect(() => {
-      queryFirebase('food', ["type", '==', "aosdknadd"])
+      queryFirebase('food', ["type", '==', "drink"])
       .then((result) => setDrinks(result.docs))
       .catch((error) => setFbError(error))
     }, [])
@@ -18,10 +17,6 @@ const Drinks = () => {
 
   const renderSkeleton = () => {
     return(
-        
-          // <SkeletonTheme color="#e6e6e6" highlightColor="#whitesmoke">
-          //   <p><Skeleton duration={.8} circle={true} height={200} width={200}/></p>
-          // </SkeletonTheme>
         <MenuSkeleton />
     )
   }

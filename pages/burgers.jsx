@@ -2,8 +2,9 @@ import PageTitle from '../components/PageTitle';
 import { useEffect, useState } from 'react';
 import InfoContainer from '../components/InfoContainer';
 import queryFirebase from '../config/firebase';
+import MenuSkeleton from '../components/MenuSkeleton';
 const Burgers = () => {
-    const [burgers, setBurgers] = useState(null);
+    const [burgers, setBurgers] = useState([]);
     const [fbError, setFbError] = useState(null);
 
   // henter data hver gang side lastes
@@ -15,10 +16,17 @@ const Burgers = () => {
 
       console.log(fbError); 
 
-    return(
+
+
+    const renderSkeleton = () => {
+      return(
+          <MenuSkeleton />
+      )
+    } 
+
+    const renderData = () => {
+      return(
         <>
-          <PageTitle>Burgere</PageTitle>
-          {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
           {burgers && <InfoContainer>
             <h2>Meny</h2>
               {/* "burgers?." means "if(burgers)" */}
@@ -33,6 +41,14 @@ const Burgers = () => {
                 ) 
               })}
           </InfoContainer>}
+        </>
+      )
+    }
+    return(
+        <>
+          <PageTitle>Burgere</PageTitle>
+          {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+          {(burgers.length === 0) ? renderSkeleton() : renderData()}
         </>
     )
 }

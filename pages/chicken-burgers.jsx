@@ -2,9 +2,10 @@ import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
 import InfoContainer from '../components/InfoContainer';
 import queryFirebase from '../config/firebase'; 
+import MenuSkeleton from '../components/MenuSkeleton';
 const ChickenBurgers = () => {
 
-    const [chickenBurgers, setChickenBurgers] = useState(null);
+    const [chickenBurgers, setChickenBurgers] = useState([]);
     const [fbError, setFbError] = useState(null);
 
     useEffect(() => {
@@ -12,11 +13,17 @@ const ChickenBurgers = () => {
       .then((result) => setChickenBurgers(result.docs))
       .catch((error) => setFbError(error))
   }, [])
+
+  const renderSkeleton = () => {
+    return (
+      <MenuSkeleton />
+    )
+  }
+
+  const renderData = () => {
     return(
-        <>
-          <PageTitle>Kyllingburgere</PageTitle>
-          {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
-          {chickenBurgers && <InfoContainer>
+      <>
+         {chickenBurgers && <InfoContainer>
             <h2>Meny</h2>
               {/* "chickenBurgers?." betyr "if(chickenBurgers)" */}
               {chickenBurgers?.map((chickenburger) => {
@@ -30,6 +37,14 @@ const ChickenBurgers = () => {
                 ) 
               })}
           </InfoContainer>}
+      </>
+    )
+  }
+    return(
+        <>
+          <PageTitle>Kyllingburgere</PageTitle>
+          {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+          {(chickenBurgers.length === 0) ? renderSkeleton() : renderData()} 
         </>
     )
 }
