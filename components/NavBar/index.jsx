@@ -54,6 +54,11 @@ export const NavContainer = styled.nav`
                 color: #9db8e6; 
             }
         }
+        :nth-child(7){ 
+            :hover{
+                color: #9db8e6; 
+            }
+        }
     }
 
     .line{

@@ -31,8 +31,7 @@ const Fries = () => {
                     <div key={f.id}>
                         <p>{f.name}</p>
                         <p>{f.price},-</p>
-                        <button>Kjøp</button>
-                        <p>{f.image}</p>
+                        <button>Legg til</button>
                     </div> 
                     ) 
                 })}

@@ -1,9 +1,5 @@
-import NavBar from '../components/NavBar';
-import NavContainer from '../components/NavBar';
-import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
-import firebaseInstance from '../config/firebase';
 import InfoContainer from '../components/InfoContainer';
 import queryFirebase from '../config/firebase'; 
 const ChickenBurgers = () => {
@@ -29,8 +25,7 @@ const ChickenBurgers = () => {
                   <div key={cb.id}>
                     <p>{cb.name}</p>
                     <p>{cb.price},-</p>
-                    <button>Kjøp</button>
-                    <p>{cb.image}</p>
+                    <button>Legg til</button>
                   </div> 
                 ) 
               })}

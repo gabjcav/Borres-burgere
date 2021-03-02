@@ -6,9 +6,9 @@ const LoginContainer = styled.form`
     display: grid; 
     background-color: #5a6b86;
     margin: 0 auto; 
-    padding: 10px; 
+    padding: 20px; 
     -webkit-box-shadow: 0px 2px 9px 2px #9b9b9b;
-
+    border-radius: 10px; 
     h1{
         color: white; 
         margin: 0 auto; 
@@ -20,9 +20,11 @@ const LoginContainer = styled.form`
         input{
             border: 1px solid #3d3d3d; 
             background: #ffffff;
+            
         }
         label{
             color: white;
+            text-align: left; 
         }
     }
     button{
@@ -31,8 +33,7 @@ const LoginContainer = styled.form`
         cursor: pointer;
         border-radius: 5px; 
         background-color: white;
-        font-size: .7rem;
-        
+        font-size: .7rem; 
     }
     #btn-container{
         display: flex; 

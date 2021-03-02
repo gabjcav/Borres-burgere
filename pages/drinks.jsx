@@ -1,26 +1,32 @@
-import NavBar from '../components/NavBar';
-import NavContainer from '../components/NavBar';
-import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import { useState, useEffect } from 'react';
 import queryFirebase from '../config/firebase'; 
 import InfoContainer from '../components/InfoContainer';
 import MenuSkeleton from '../components/MenuSkeleton';
+
 const Drinks = () => {
-    const [drinks, setDrinks] = useState(null);
+    const [drinks, setDrinks] = useState([]);
     //fbError means Firebase error
     const [fbError, setFbError] = useState(null);
 
     useEffect(() => {
-      queryFirebase('food', ["type", '==', "drink"])
+      queryFirebase('food', ["type", '==', "aosdknadd"])
       .then((result) => setDrinks(result.docs))
       .catch((error) => setFbError(error))
-  }, [])
+    }, [])
+
+
+  const renderSkeleton = () => {
     return(
-        <>
-                <PageTitle>Drikke</PageTitle>
-                {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
-                {drinks && <InfoContainer>
+      <MenuSkeleton />
+    )
+  }
+
+
+  const renderData = () => {
+    return(
+      <>
+       {drinks && <InfoContainer>
                   <h2>Meny</h2>
                     {/* "drinks?." means "if(drinks)" */}
                     {drinks?.map((drink) => {
@@ -30,12 +36,20 @@ const Drinks = () => {
                         <div key={d.id}>
                           <p>{d.name}</p>
                           <p>{d.price},-</p>
-                          <button>Kjøp</button>
-                          <p>{d.image}</p>
+                          <button>Legg til</button>
                         </div> 
                       ) 
                     })}
                 </InfoContainer>}
+      </>
+    )
+  }
+    return(
+        <>
+                <PageTitle>Drikke</PageTitle>
+                {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+                {drinks.length === 0 ? renderSkeleton() : renderData()} 
+                
         </>
     )
 }

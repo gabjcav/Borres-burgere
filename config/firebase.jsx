@@ -19,12 +19,12 @@ try {
     }
 }
 
-const queryFirebase = (collection, filter) => {
-    console.log(collection, filter)
+const queryFirebase = (collection, type) => {
+    console.log(collection, type)
     return firebase
         .firestore()
         .collection(collection)
-        .where(...filter)
+        .where(...type)
         .get()
 }
 

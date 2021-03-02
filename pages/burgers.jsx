@@ -6,12 +6,15 @@ const Burgers = () => {
     const [burgers, setBurgers] = useState(null);
     const [fbError, setFbError] = useState(null);
 
+  // henter data hver gang side lastes
     useEffect(() => {
         queryFirebase('food', ["type", '==', "burger"])
         .then((result) => setBurgers(result.docs))
         .catch((error) => setFbError(error))
     }, [])
+
       console.log(fbError); 
+
     return(
         <>
           <PageTitle>Burgere</PageTitle>
@@ -25,8 +28,7 @@ const Burgers = () => {
                   <div key={b.id}>
                     <p>{b.name}</p>
                     <p>{b.price},-</p>
-                    <button>Kjøp</button>
-                    <p>{b.image}</p>
+                    <button>Legg til</button>
                   </div> 
                 ) 
               })}

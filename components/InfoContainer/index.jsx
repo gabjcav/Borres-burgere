@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InfoContainer = styled.section`
+const InfoContainer = styled.article`
     background-color: #5a6b86;
     padding: 10px;  
     color: white;
@@ -21,6 +21,7 @@ const InfoContainer = styled.section`
         color: #5a6b86;
         width: 70%; 
         border-radius: 10px; 
+        height: 22%; 
         button{
             height: 50px; 
             border-radius: 10px;
@@ -33,7 +34,7 @@ const InfoContainer = styled.section`
             padding: 10px; 
             font-family: 'Impact', sans-serif;
             letter-spacing: 2px; 
-            transition: .5s ease; 
+            transition: .3s ease; 
             border: 2px solid  #5a6b86; 
             :hover{
                 color: #5a6b86;
