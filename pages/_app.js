@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState([]);
   
   return (
-<>
+
      <LoginContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
-      {/* <CartContext value={{cart, setCart}}> */}
+      <CartContext.Provider value={{cart, setCart}}>
         <UsernameContext.Provider value={{username, setUsername}}> 
             <NavContainer>
                   <NavBar />
@@ -23,9 +23,9 @@ function MyApp({ Component, pageProps }) {
               <Component {...pageProps} />
             </MainContainer>
          </UsernameContext.Provider>
-      {/* </CartContext> */}
+      </CartContext.Provider>
     </LoginContext.Provider> 
-</>
+
   )
 }
 

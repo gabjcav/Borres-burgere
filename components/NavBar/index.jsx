@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Link from 'next/link';
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
-
+import { CartContext } from '../../helper/context';
+import { useContext } from 'react';
 export const NavContainer = styled.nav`
     width: 350px;
     position: fixed;
@@ -82,6 +83,9 @@ export const NavContainer = styled.nav`
 
 
 const NavBar = () => {
+    const {cart, setCart} = useContext(CartContext);
+
+    
     return (
         <NavContainer>
             <ul>

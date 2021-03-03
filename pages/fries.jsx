@@ -21,13 +21,11 @@ const Fries = () => {
 
     const addToCart = (event) => {
         event.preventDefault();
-        // let clickedProduct = fries?.find(product => product.id === event.target.id);
-        // if(isLoggedIn === false){
-        //     console.log('Logg inn for å handle')
-        // } else {
-        //     setCart([...cart, clickedProduct.data()]); 
-        // }
-        console.log(cart);
+        let clickedProduct = fries?.find(product => product.id === event.target.id);
+        
+        setCart([...cart, clickedProduct.data()]); 
+       
+        console.log('cart', cart, 'length', cart.length);
     }
     
     const renderSkeleton = () => {
