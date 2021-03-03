@@ -7,7 +7,7 @@ const Burgers = () => {
     const [burgers, setBurgers] = useState([]);
     const [fbError, setFbError] = useState(null);
 
-  // henter data hver gang side lastes
+    // henter data hver gang side lastes
     useEffect(() => {
         queryFirebase('food', ["type", '==', "burger"])
         .then((result) => setBurgers(result.docs))
@@ -24,7 +24,10 @@ const Burgers = () => {
       )
     } 
 
+    
+
     const renderData = () => {
+
       return(
         <>
           {burgers && <InfoContainer>

@@ -3,14 +3,16 @@ import { useState, useEffect } from 'react';
 import queryFirebase from '../config/firebase';
 import InfoContainer from '../components/InfoContainer';
 import MenuSkeleton from '../components/MenuSkeleton';
-
+import { CartContext, LoginContext } from '../helper/context';
+import { useContext } from 'react';
 
 
 const Fries = () => {
     const [fries, setFries] = useState([]);
     //fbError means Firebase error
     const [fbError, setFbError] = useState(null);
-    const [cart, setCart] = useState([]); 
+    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
+    const {cart, setCart} = useContext(CartContext); 
     useEffect(() => {
         queryFirebase('food', ["type", '==', "fries"])
         .then((result) => setFries(result.docs))
@@ -18,15 +20,14 @@ const Fries = () => {
     }, [])
 
     const addToCart = (event) => {
-
         event.preventDefault();
-        let clickedProduct = fries?.find(product => product.id === event.target.id);
-        if(!clickedProduct){
-            return;
-        } else {
-            setCart([...cart, clickedProduct.data()]); 
-        }
-        console.log(cart); 
+        // let clickedProduct = fries?.find(product => product.id === event.target.id);
+        // if(isLoggedIn === false){
+        //     console.log('Logg inn for å handle')
+        // } else {
+        //     setCart([...cart, clickedProduct.data()]); 
+        // }
+        console.log(cart);
     }
     
     const renderSkeleton = () => {

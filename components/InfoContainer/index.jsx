@@ -22,6 +22,7 @@ const InfoContainer = styled.article`
         width: 70%; 
         border-radius: 10px; 
         height: 22%; 
+
         button{
             height: 50px; 
             border-radius: 10px;
