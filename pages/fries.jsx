@@ -3,23 +3,38 @@ import { useState, useEffect } from 'react';
 import queryFirebase from '../config/firebase';
 import InfoContainer from '../components/InfoContainer';
 import MenuSkeleton from '../components/MenuSkeleton';
+
+
+
 const Fries = () => {
     const [fries, setFries] = useState([]);
     //fbError means Firebase error
     const [fbError, setFbError] = useState(null);
-
+    const [cart, setCart] = useState([]); 
     useEffect(() => {
         queryFirebase('food', ["type", '==', "fries"])
         .then((result) => setFries(result.docs))
         .catch((error) => setFbError(error))
     }, [])
 
+    const addToCart = (event) => {
+
+        event.preventDefault();
+        let clickedProduct = fries?.find(product => product.id === event.target.id);
+        if(!clickedProduct){
+            return;
+        } else {
+            setCart([...cart, clickedProduct.data()]); 
+        }
+        console.log(cart); 
+    }
+    
     const renderSkeleton = () => {
         return(
             <MenuSkeleton />
         )
     }
-
+    
     const renderData = () => {
         
         return (
@@ -31,12 +46,13 @@ const Fries = () => {
                         //Must have .data() because firebase works like that
                         const f = frie.data();
                         return (
-                        <div key={f.id}>
+                        <div key={frie.id}>
                             <p>{f.name}</p>
                             <p>{f.price},-</p>
-                            <button>Legg til</button>
+                            <button onClick={addToCart} id={frie.id}>Legg til</button>
                         </div> 
                         ) 
+                        
                     })}
                     
                 </InfoContainer>}
