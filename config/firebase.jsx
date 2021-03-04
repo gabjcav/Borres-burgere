@@ -12,16 +12,18 @@ export const firebaseConfig = {
 
 try {
     firebase.initializeApp(firebaseConfig);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 } catch(error) {
         // /REGEX/
     if(!/already exists/.test(error.message)){
         console.error('Firebase error')
     }
 }
+export const firebaseInstance = firebase;
 
 const queryFirebase = (collection, type) => {
     
-    return firebase
+    return firebaseInstance
         .firestore()
         .collection(collection)
         .where(...type)

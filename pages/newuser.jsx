@@ -1,53 +1,53 @@
 import LoginContainer from '../components/LoginContainer';
 import Link from 'next/link';
-import firebase from 'firebase'; 
-import { LoginContext, UsernameContext } from '../helper/context';
-import { useContext } from 'react';
-
+import { firebaseInstance } from '../config/firebase'; 
+import React, { useState } from 'react';
+import { useRouter } from 'next/router'; 
 const NewUser = () => {
 
-    //parse formdata
-    const {isLoggedIn, setIsLoggedIn} = useContext(LoginContext);
-    const {username, setUsername} = useContext(UsernameContext);
 
-    const createUser = (event) => { 
-        event.preventDefault(); 
-        console.log('EVENT', event);
 
-        const data = new FormData(event.target);
+    //Mathias sin måte
 
-        const email = data.get('email');
-        const password = data.get('password');
-      
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-        // Signed in 
-        let user = userCredential.user;
-        // ...        
-        console.log(userCredential);
-        setIsLoggedIn(true);
-        console.log("userCredential", userCredential)
-        })
-        .catch((error) => {
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        // ..
-        });
-        
-        
-    }
-    console.log('logged in:', isLoggedIn);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null); 
+    const [error, setError] = useState(null); 
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try{
+            await firebaseInstance.auth().createUserWithEmailAndPassword(email, password);
+            console.log('Bruker laget'); 
+        }
+        catch (error) {
+            setError(error.message)
+            console.log('error;', error);
+        }
+    };
+
+
+
+
     return(
-            <LoginContainer onSubmit={createUser}>
-                {isLoggedIn ? <h1>Velkommen</h1> : 
-                
-                <>
+            <LoginContainer onSubmit={handleSubmit}>
+
+               
                     <h1>Ny bruker</h1>
                     <div>
                         <label htmlFor="email">Epost</label>
-                        <input type="text" name="email" id="email"/>
+                        <input 
+                            type="text" 
+                            name="email" 
+                            id="email" 
+                            onChange={e => setEmail(e.target.value)}/>
                         <label htmlFor="password">Passord</label>
-                        <input type="password" name="password" id="password"/>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            onChange={e => setPassword(e.target.value)}/>
                     </div>
                     <div id="btn-container">
                         <button type="submit">Fullfør</button>
@@ -57,11 +57,9 @@ const NewUser = () => {
                         <Link href='login'>
                             <button>Logg inn</button>
                         </Link>
-                        
                     </div>
-                </>
-                }
-                
+
+                {error && <p>{error}</p>}
             </LoginContainer>
         
     )
