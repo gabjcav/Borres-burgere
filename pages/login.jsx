@@ -1,47 +1,68 @@
 import LoginContainer from '../components/LoginContainer';
 import Link from 'next/link';
-import firebase from 'firebase'; 
+import { firebaseInstance } from '../config/firebase'; 
+import React, { useState } from 'react';
+import { useRouter } from 'next/router'; 
 const Login = () => {
 
-    
+    //parse formdata
 
-    const loginUser = () => { 
-        firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-     // Signed in
-        let user = userCredential.user;
-    // ...
-        console.log(user)
-        })
-        .catch((error) => {
-            let errorCode = error.code;
-            let errorMessage = error.message;
-        });
-    }
+
+    //Mathias sin måte
+    const router = useRouter();
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null); 
+    const [error, setError] = useState(null); 
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try{
+            await firebaseInstance.auth().signInWithEmailAndPassword(email, password);
+            console.log('Logget inn'); 
+            router.push('/profile');
+        }
+        catch (error) {
+            setError(error.message)
+            console.log('error;', error);
+        }
+    };
+
+
 
     return(
-            <LoginContainer onSubmit={loginUser}>
-                <h1>Logg inn</h1>
-                <div>
-                    <label htmlFor="username">Epost</label>
-                    <input type="text" name="username" id="username"/>
-                    <label htmlFor="password">Passord</label>
-                    <input type="password" name="password" id="password"/>
-                </div>
-                <div id="btn-container">
-                    <button onClick={loginUser}>Logg inn</button>
-                    <Link href='/'>
-                        <button>Tilbake</button>
-                    </Link>
-                    <Link href='/newuser'>
-                        <button>Ny bruker</button>
-                    </Link>
-                    
-                </div>
+            <LoginContainer onSubmit={handleSubmit}>
+                    <h1>Logg inn</h1>
+                    <div>
+                        <label htmlFor="email">Epost</label>
+                        <input 
+                            type="text" 
+                            name="email" 
+                            id="email" 
+                            onChange={e => setEmail(e.target.value)}/>
+                        <label htmlFor="password">Passord</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            onChange={e => setPassword(e.target.value)}/>
+                    </div>
+                    <div id="btn-container">
+                        <button type="submit">Logg inn</button>
+                        <Link href='/'>
+                            <button>Tilbake</button>
+                        </Link>
+                        <Link href='newuser'>
+                            <button>Ny bruker</button>
+                        </Link>
+                    </div>
                 
+                
+                {error && <p>{error}</p>}
             </LoginContainer>
         
     )
 }
 
-export default Login;
+export default Login; 
