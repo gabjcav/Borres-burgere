@@ -24,12 +24,14 @@ const Profile = () => {
     return(
         <ProfileContainer>
             <p>Profil</p>
+            <div className="line"></div>
             {userContext && (
                 <>
                     <p><span className="profile-span">Brukernavn:</span> {userContext.email}</p>
                     <p><span className="profile-span">Bruker-ID:</span> {userContext.uid}</p>
                 </>
             )}
+            <div className="line" id="bottom-line"></div>
             <button onClick={handleSignout}>Logg ut</button>
         </ProfileContainer>
     )

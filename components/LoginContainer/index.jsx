@@ -20,7 +20,8 @@ const LoginContainer = styled.form`
         input{
             border: 1px solid #3d3d3d; 
             background: #ffffff;
-            
+            border-radius: 3px; 
+            height: 10%; 
         }
         label{
             color: white;
@@ -28,16 +29,35 @@ const LoginContainer = styled.form`
         }
     }
     button{
-        width: 70px; 
-        height: 40px; 
+        width: 90px; 
+        height: 60px; 
         cursor: pointer;
         border-radius: 5px; 
         background-color: white;
-        font-size: .7rem; 
+        font-size: .9rem; 
+        color: white; 
+        border: 2px solid white; 
+        font-family: sans-serif; 
+        font-weight: 600; 
+        background-color: #5a6b86; 
+        letter-spacing: 1px; 
+        transition: .5s ease; 
+        &:hover{
+            color: #5a6b86;
+            background-color: white; 
+            
+        }
     }
     #btn-container{
         display: flex; 
         flex-direction: row;
+        padding-top: 30px; 
+        
+    }
+
+    p{
+        color: white; 
+        font-size: 1.2rem; 
     }
 `
 

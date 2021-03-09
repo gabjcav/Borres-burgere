@@ -38,6 +38,20 @@ const ProfileContainer = styled.article`
         display: block; 
         margin-bottom: 10px; 
     }
+    .line{
+        background-color: #ffffff;
+        height: 3px;
+        width : 85%;
+        margin: 0 auto; 
+    }
+    #bottom-line{
+        background-color: #ffffff;
+        height: 3px;
+        width : 85%;
+        margin: auto; 
+        margin-top: 10px; 
+        margin-bottom: 20px; 
+    }
 `
 
 export default ProfileContainer;
