@@ -23,7 +23,7 @@ const Profile = () => {
     <ProfileContainer>
       <p>Profil</p>
       <div className="line"></div>
-      {userContext && (
+      {user && (
         <>
           <p>
             <span className="profile-span">Brukernavn:</span> {user.email}
