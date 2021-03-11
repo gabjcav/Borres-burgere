@@ -1,12 +1,22 @@
 import CartContainer from '../components/CartContainer'
 import { useCart } from '../helper/CartContext'
 import Link from 'next/link'
+import { useAuth } from '../helper/context'
+import { useRouter } from 'next/router'
 
 const Cart = () => {
   const cart = useCart()
+  const { user, loading, isAuthenticated } = useAuth()
+  const router = useRouter()
+  if (loading) {
+    return <>Loading.....</>
+  }
 
+  if (!isAuthenticated) {
+    router.push('/login')
+  }
+  console.log(user, loading, isAuthenticated)
   function handleRemove(id) {
-    console.log('id', id)
     cart.setProductLines(cart.productLines.filter((item) => item.id !== id))
   }
 
@@ -22,7 +32,9 @@ const Cart = () => {
             <>
               <li>
                 <span id="item-name">{item.name}</span> <span id="item-price">{item.price},-</span>
-                <button onClick={() => handleRemove(item.id)}>Fjern</button>
+                <button id="remove-btn" onClick={() => handleRemove(item.id)}>
+                  Fjern
+                </button>
               </li>
             </>
           )
@@ -30,7 +42,7 @@ const Cart = () => {
       </ul>
       <p id="total">Total: {cart.total},-</p>
       <div id="button-container">
-        <button>Betal</button>
+        <button>Bestill</button>
         <Link href="/">
           <button>Tilbake</button>
         </Link>

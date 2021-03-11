@@ -32,6 +32,29 @@ const CartContainer = styled.div`
             display: grid; 
             grid-template-columns: repeat(3, 1fr);
 
+            #remove-btn{
+                width: 60px; 
+                height: 40px; 
+                cursor: pointer;
+                border-radius: 5px; 
+                background-color: white;
+                font-size: .9rem; 
+                color: white; 
+                border: 2px solid white; 
+                font-family: sans-serif; 
+                font-weight: 600; 
+                background-color: #5a6b86; 
+                letter-spacing: 1px; 
+                transition: .5s ease; 
+                align-self: center;
+                justify-self: center;
+                 
+                &:hover{
+                color: #5a6b86;
+                background-color: white; 
+                
+                }
+            }
         }
     }
     #list-info{
@@ -79,6 +102,8 @@ const CartContainer = styled.div`
                 
             }
         }
+
+        
     }
     
 `

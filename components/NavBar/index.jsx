@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
-import { useCart } from '../../helper/cartContext'
-import { useEffect } from 'react'
+
 export const NavContainer = styled.nav`
   width: 350px;
   position: fixed;
@@ -87,14 +86,6 @@ export const NavContainer = styled.nav`
 `
 
 const NavBar = () => {
-  const cart = useCart()
-  const cartLength = cart.quantity
-  console.log('qty:', cartLength)
-
-  useEffect(() => {
-    console.log('cart', cart)
-  }, [cart])
-
   return (
     <NavContainer>
       <ul>
