@@ -10,7 +10,7 @@ const CartContainer = styled.div`
     -webkit-box-shadow: 2px 2px 10px 2px #9b9b9b; 
     ul{
         list-style: none; 
-        display: flex; 
+        display: block; 
         flex-direction: column; 
         width: 80%; 
         margin: 0 auto; 
@@ -20,17 +20,22 @@ const CartContainer = styled.div`
         padding: 20px; 
         max-height: 40%; 
         min-height: 40%; 
-        gap: 10px; 
         font-size: 1.4rem; 
         font-family: sans-serif; 
         overflow-y: auto; 
+        
         p{
             margin-top: 100%;
         }
         li{
             color: white; 
+            margin-bottom: 5%; 
             display: grid; 
             grid-template-columns: repeat(3, 1fr);
+            span{
+                justify-self: center;
+                align-self: center; 
+            }
 
             #remove-btn{
                 width: 60px; 
@@ -47,8 +52,7 @@ const CartContainer = styled.div`
                 letter-spacing: 1px; 
                 transition: .5s ease; 
                 align-self: center;
-                justify-self: center;
-                 
+                justify-self: center; 
                 &:hover{
                 color: #5a6b86;
                 background-color: white; 

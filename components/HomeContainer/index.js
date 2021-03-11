@@ -8,8 +8,14 @@ const HomeContainer = styled.main`
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 15%; 
-    
+  gap: 15%;
+  h2{
+      background-color: #5a6b86; 
+      padding: 1%; 
+      border-radius: 3%; 
+      color: white; 
+  } 
+
   #login-btn {
     width: 10%;
     align-self: center;
