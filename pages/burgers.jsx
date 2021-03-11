@@ -4,7 +4,11 @@ import InfoContainer from '../components/InfoContainer'
 import queryFirebase from '../config/firebase'
 import MenuSkeleton from '../components/MenuSkeleton'
 import { useCart } from '../helper/CartContext'
+import { useAuth } from '../helper/context'
+import { useRouter } from 'next/router'
 const Burgers = () => {
+  const { user, loading, isAuthenticated } = useAuth()
+  const router = useRouter()
   const cart = useCart()
   const [burgers, setBurgers] = useState([])
   const [fbError, setFbError] = useState(null)
@@ -37,11 +41,16 @@ const Burgers = () => {
                   <p>{b.price},-</p>
                   <button
                     onClick={() => {
-                      cart.addProductLine({
-                        name: b.name,
-                        price: b.price,
-                        id: Math.random() * 100,
-                      })
+                      if (!isAuthenticated) {
+                        alert('Logg inn for å handle')
+                        router.push('/login')
+                      } else {
+                        cart.addProductLine({
+                          name: b.name,
+                          price: b.price,
+                          id: Math.random() * 100,
+                        })
+                      }
                     }}
                   >
                     Legg til

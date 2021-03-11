@@ -4,7 +4,11 @@ import queryFirebase from '../config/firebase'
 import InfoContainer from '../components/InfoContainer'
 import MenuSkeleton from '../components/MenuSkeleton'
 import { useCart } from '../helper/CartContext'
+import { useAuth } from '../helper/context'
+import { useRouter } from 'next/router'
 const Drinks = () => {
+  const { user, loading, isAuthenticated } = useAuth()
+  const router = useRouter()
   const cart = useCart()
   const [drinks, setDrinks] = useState([])
   //fbError means Firebase error
@@ -36,11 +40,16 @@ const Drinks = () => {
                   <p>{d.price},-</p>
                   <button
                     onClick={() => {
-                      cart.addProductLine({
-                        name: d.name,
-                        price: d.price,
-                        id: Math.random() * 100,
-                      })
+                      if (!isAuthenticated) {
+                        router.push('/login')
+                        alert('Logg inn for å handle')
+                      } else {
+                        cart.addProductLine({
+                          name: d.name,
+                          price: d.price,
+                          id: Math.random() * 100,
+                        })
+                      }
                     }}
                   >
                     Legg til

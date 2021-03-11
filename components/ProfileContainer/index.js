@@ -13,6 +13,7 @@ const ProfileContainer = styled.article`
     font-family: 'Impact', sans-serif;
     font-size: 2rem; 
     color: white; 
+    
     button{
         width: 30%; 
         align-self: center; 

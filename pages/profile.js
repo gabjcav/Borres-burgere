@@ -7,6 +7,7 @@ import ProfileContainer from '../components/ProfileContainer'
 const Profile = () => {
   const router = useRouter()
   const userContext = useAuth()
+  const { user, loading, isAuthenticated } = useAuth()
 
   useEffect(() => {
     console.log('The context', userContext)
@@ -25,10 +26,10 @@ const Profile = () => {
       {userContext && (
         <>
           <p>
-            <span className="profile-span">Brukernavn:</span> {userContext.user.email}
+            <span className="profile-span">Brukernavn:</span> {user.email}
           </p>
           <p>
-            <span className="profile-span">Bruker-ID:</span> {userContext.user.uid}
+            <span className="profile-span">Bruker-ID:</span> {user.uid}
           </p>
         </>
       )}

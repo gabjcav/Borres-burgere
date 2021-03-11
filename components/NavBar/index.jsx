@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import Link from 'next/link'
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
+import { useAuth } from '../../helper/context'
+import { useRouter } from 'next/router'
 
 export const NavContainer = styled.nav`
   width: 350px;
@@ -86,6 +88,8 @@ export const NavContainer = styled.nav`
 `
 
 const NavBar = () => {
+  const { user, loading, isAuthenticated } = useAuth()
+
   return (
     <NavContainer>
       <ul>
@@ -118,7 +122,8 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/login">Logg inn</Link>
+          {isAuthenticated && <Link href="/profile">Profil</Link>}
+          {!isAuthenticated && <Link href="/login">Logg inn</Link>}
         </li>
       </ul>
     </NavContainer>
