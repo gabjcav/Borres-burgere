@@ -8,14 +8,12 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <>
-      <MainContainer>
-        <PageTitle>
-          <span id="home-title">VELKOMMEN</span>
-        </PageTitle>
-        <Link href="/login">
-          <button id="login-btn">Logg inn</button>
-        </Link>
-      </MainContainer>
+      <PageTitle>
+        <span id="home-title">VELKOMMEN</span>
+      </PageTitle>
+      <Link href="/login">
+        <button id="login-btn">Logg inn</button>
+      </Link>
     </>
   )
 }

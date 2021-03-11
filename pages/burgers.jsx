@@ -40,6 +40,7 @@ const Burgers = () => {
                       cart.addProductLine({
                         name: b.name,
                         price: b.price,
+                        id: Math.random() * 100,
                       })
                     }}
                   >

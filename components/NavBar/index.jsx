@@ -3,6 +3,7 @@ import Link from 'next/link'
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
 import { useCart } from '../../helper/cartContext'
+import { useEffect } from 'react'
 export const NavContainer = styled.nav`
   width: 350px;
   position: fixed;
@@ -87,8 +88,13 @@ export const NavContainer = styled.nav`
 
 const NavBar = () => {
   const cart = useCart()
-  const cartLength = cart.productLines.length
-  console.log(cart.productLines.length)
+  const cartLength = cart.quantity
+  console.log('qty:', cartLength)
+
+  useEffect(() => {
+    console.log('cart', cart)
+  }, [cart])
+
   return (
     <NavContainer>
       <ul>
@@ -117,9 +123,7 @@ const NavBar = () => {
         </li>
         <li>
           <Link href="/cart">
-            <span id="nav-cart">
-              Handlekurv <span id="cart-counter">{cartLength}</span>
-            </span>
+            <span id="nav-cart">Handlekurv</span>
           </Link>
         </li>
         <li>

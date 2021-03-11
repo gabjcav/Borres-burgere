@@ -18,7 +18,7 @@ const CartContainer = styled.div`
         border: 2px dashed white; 
         border-radius: 6px; 
         padding: 20px; 
-        max-height: 50%; 
+        max-height: 40%; 
         min-height: 40%; 
         gap: 10px; 
         font-size: 1.4rem; 
@@ -30,7 +30,7 @@ const CartContainer = styled.div`
         li{
             color: white; 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
         }
     }
@@ -50,7 +50,7 @@ const CartContainer = styled.div`
         display: grid; 
         max-width: 60%; 
         grid-template-columns: repeat(3, 1fr);
-         
+         position: relative;
         justify-content: center;
         align-items: center;  
         margin: 0 auto; 

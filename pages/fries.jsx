@@ -41,6 +41,7 @@ const Fries = () => {
                       cart.addProductLine({
                         name: f.name,
                         price: f.price,
+                        id: Math.random() * 100,
                       })
                     }}
                   >

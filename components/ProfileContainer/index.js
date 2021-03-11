@@ -7,7 +7,7 @@ const ProfileContainer = styled.article`
     display: grid; 
     background-color: #5a6b86;
     margin: 0 auto; 
-    padding: 20px; 
+    padding: ${(props) => props.theme.space[3]}; 
     -webkit-box-shadow: 0px 2px 9px 2px #9b9b9b;
     border-radius: 10px; 
     font-family: 'Impact', sans-serif;
@@ -21,7 +21,7 @@ const ProfileContainer = styled.article`
         background-color: #5a6b86; 
         color: white; 
         font-family: 'Impact', sans-serif; 
-        font-size: 1.7rem; 
+        font-size: ${(props) => props.theme.space[4]}; 
         border: none; 
         cursor: pointer; 
         border-radius: 6px; 

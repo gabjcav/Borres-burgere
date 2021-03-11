@@ -3,7 +3,10 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const CartContext = createContext({
 
     productLines: [],
-    addProductLine: () => {}
+    addProductLine: () => {},
+    quantity: 0, 
+    total: 0,
+    
 
 })
 
@@ -12,7 +15,7 @@ export const Cart = ({ children }) => {
 
     const [productLines, setProductLines] = useState([]);
     const [total, setTotal] = useState(null); 
-
+    const [quantity, setQuantity] = useState(0); 
 
     const addProductLine = (product) => {
         setProductLines([...productLines, product])
@@ -25,15 +28,17 @@ export const Cart = ({ children }) => {
             
         }, 0); 
         setTotal(total); 
+        setQuantity(productLines.length);
+        console.log(productLines); 
     }, [productLines])
+    
     return(
-        <CartContext.Provider value={{productLines, addProductLine, total}}>
+        <CartContext.Provider value={{setProductLines , productLines, addProductLine, total, quantity}}>
             {children}
         </CartContext.Provider>
     )
+    
 };
-
-export const CartConsumer = CartContext.Consumer; 
 
 export const useCart = () => {
     return useContext(CartContext); 

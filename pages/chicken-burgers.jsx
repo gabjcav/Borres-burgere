@@ -4,6 +4,7 @@ import InfoContainer from '../components/InfoContainer'
 import queryFirebase from '../config/firebase'
 import MenuSkeleton from '../components/MenuSkeleton'
 import { useCart } from '../helper/CartContext'
+
 const ChickenBurgers = () => {
   const cart = useCart()
   const [chickenBurgers, setChickenBurgers] = useState([])
@@ -27,6 +28,7 @@ const ChickenBurgers = () => {
             <h2>Meny</h2>
             {/* "chickenBurgers?." betyr "if(chickenBurgers)" */}
             {chickenBurgers?.map((chickenburger) => {
+              //Must have .data() when using firebase
               const cb = chickenburger.data()
               return (
                 <div key={cb.id}>
@@ -37,6 +39,7 @@ const ChickenBurgers = () => {
                       cart.addProductLine({
                         name: cb.name,
                         price: cb.price,
+                        id: Math.random() * 100,
                       })
                     }}
                   >
@@ -53,7 +56,11 @@ const ChickenBurgers = () => {
   return (
     <>
       <PageTitle>Kyllingburgere</PageTitle>
-      {fbError && <p>An error has occured: {JSON.stringify(fbError, null, 2)}</p>}
+      {fbError && (
+        <p>
+          An error has occured: <pre>{JSON.stringify(fbError, null, 2)}</pre>{' '}
+        </p>
+      )}
       {chickenBurgers.length === 0 ? renderSkeleton() : renderData()}
     </>
   )
