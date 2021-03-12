@@ -3,7 +3,7 @@ import { useCart } from '../helper/CartContext'
 import Link from 'next/link'
 import { useAuth } from '../helper/context'
 import { useRouter } from 'next/router'
-
+import { firebaseInstance } from '../config/firebase'
 const Cart = () => {
   const cart = useCart()
   const { user, loading, isAuthenticated } = useAuth()
@@ -18,6 +18,28 @@ const Cart = () => {
   console.log(user, loading, isAuthenticated)
   function handleRemove(id) {
     cart.setProductLines(cart.productLines.filter((item) => item.id !== id))
+  }
+
+  function handleOrdrePush() {
+    const collection = firebaseInstance.firestore().collection('orders')
+    collection
+      .doc()
+      .set({
+        customer: user.uid,
+        items: [...cart.productLines],
+        completed: false,
+        paid: false,
+        status: 'preparing',
+        orderid: Math.floor(Math.random() * 100),
+        time: Date().toLocaleString().slice(16, 24),
+      })
+      .then(() => {
+        console.log('Added to order-collection')
+        cart.setProductLines([])
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
@@ -42,7 +64,13 @@ const Cart = () => {
       </ul>
       <p id="total">Total: {cart.total},-</p>
       <div id="button-container">
-        <button>Bestill</button>
+        <button
+          onClick={() => {
+            handleOrdrePush()
+          }}
+        >
+          Bestill
+        </button>
         <Link href="/">
           <button>Tilbake</button>
         </Link>
