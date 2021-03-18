@@ -20,17 +20,19 @@ const Fries = () => {
       .then((result) => setFries(result.docs))
       .catch((error) => setFbError(error))
   }, [])
-
+  console.log(fries)
   const renderSkeleton = () => {
     return <MenuSkeleton />
   }
 
   const renderData = () => {
+    const cartLength = cart.productLines.length
     return (
       <>
         {fries && (
           <InfoContainer>
             <h2>Meny</h2>
+            <p id="cart-length">Produkter i handlekurv: {cartLength}</p>
             {/* "fries?." means "if(fries)" */}
             {fries?.map((frie) => {
               //Must have .data() because firebase works like that

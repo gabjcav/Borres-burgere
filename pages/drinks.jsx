@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 const Drinks = () => {
   const { user, loading, isAuthenticated } = useAuth()
   const router = useRouter()
+
   const cart = useCart()
   const [drinks, setDrinks] = useState([])
   //fbError means Firebase error
@@ -25,11 +26,13 @@ const Drinks = () => {
   }
 
   const renderData = () => {
+    const cartLength = cart.productLines.length
     return (
       <>
         {drinks && (
           <InfoContainer>
             <h2>Meny</h2>
+            <p id="cart-length">Produkter i handlekurv: {cartLength}</p>
             {/* "drinks?." means "if(drinks)" */}
             {drinks?.map((drink) => {
               //Must have .data() because firebase works like that

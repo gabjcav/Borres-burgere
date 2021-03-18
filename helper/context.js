@@ -20,7 +20,6 @@ export function AuthProvider({ children }) {
         nookies.set(undefined, 'token', token, { path: '/' })
       }
       setLoading(false)
-      console.log(user)
     })
   })
 

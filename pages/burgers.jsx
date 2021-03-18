@@ -27,11 +27,13 @@ const Burgers = () => {
   console.log(cart)
 
   const renderData = () => {
+    const cartLength = cart.productLines.length
     return (
       <>
         {burgers && (
           <InfoContainer>
             <h2>Meny</h2>
+            <p id="cart-length">Produkter i handlekurv: {cartLength}</p>
             {/* "burgers?." means "if(burgers)" */}
             {burgers?.map((burger) => {
               const b = burger.data()

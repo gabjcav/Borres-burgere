@@ -27,6 +27,9 @@ const MenuSkeletonStyle = styled.div`
         justify-content: center; 
         flex-direction: column; 
     }
+    #cart-length {
+        font-size: 1.2rem;
+    }
 `
 
 
@@ -34,6 +37,7 @@ const MenuSkeleton = () => {
     return(
         <MenuSkeletonStyle>
             <h2>Meny</h2>
+            <p id="cart-length">Produkter i handlekurv: ...</p>
             <SkeletonTheme 
                 color="white" 
                 highlightColor="#5a6b86"

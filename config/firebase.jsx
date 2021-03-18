@@ -27,12 +27,5 @@ const queryFirebase = (collection, type) => {
     .where(...type)
     .get()
 }
-const queryFirebaseOrders = (collection, status) => {
-  return firebaseInstance
-    .firestore()
-    .collection(collection)
-    .where(...status)
-    .get()
-}
 
 export default queryFirebase

@@ -25,11 +25,13 @@ const ChickenBurgers = () => {
   }
 
   const renderData = () => {
+    const cartLength = cart.productLines.length
     return (
       <>
         {chickenBurgers && (
           <InfoContainer>
             <h2>Meny</h2>
+            <p id="cart-length">Produkter i handlekurv: {cartLength}</p>
             {/* "chickenBurgers?." betyr "if(chickenBurgers)" */}
             {chickenBurgers?.map((chickenburger) => {
               //Must have .data() when using firebase
@@ -61,12 +63,13 @@ const ChickenBurgers = () => {
       </>
     )
   }
+
   return (
     <>
       <PageTitle>Kyllingburgere</PageTitle>
       {fbError && (
         <p>
-          An error has occured: <pre>{JSON.stringify(fbError, null, 2)}</pre>{' '}
+          An error has occured: <pre>{JSON.stringify(fbError, null, 2)}</pre>
         </p>
       )}
       {chickenBurgers.length === 0 ? renderSkeleton() : renderData()}

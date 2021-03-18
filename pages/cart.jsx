@@ -28,14 +28,16 @@ const Cart = () => {
         customer: user.uid,
         items: [...cart.productLines],
         completed: false,
-        paid: false,
+        paid: true,
         status: 'preparing',
         orderid: Math.floor(Math.random() * 100),
         time: Date().toLocaleString().slice(16, 24),
+        totalprice: cart.total,
       })
       .then(() => {
-        console.log('Added to order-collection')
+        console.log('Order added to database')
         cart.setProductLines([])
+        router.push('/receipt')
       })
       .catch((error) => {
         console.log(error)
