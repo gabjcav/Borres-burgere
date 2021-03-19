@@ -1,15 +1,19 @@
 import { ReceiptContainer } from '../components/ReceiptContainer'
-import { useCart } from '../helper/CartContext'
 
 const Receipt = () => {
-  const cart = useCart()
+  const [order, setOrder] = useState(null)
+
+  useEffect(() => {
+    queryFirebase('orders', ['completed', '==', true])
+      .then((result) => setOrder(result.docs))
+      .catch((error) => setFbError(error))
+  }, [])
 
   return (
     <ReceiptContainer>
-      <h1>Kvittering</h1>
+      <h1>Bekreftelse</h1>
       <div className="line"></div>
-
-      <ul></ul>
+      <p>Takk for ditt kjøp</p>
     </ReceiptContainer>
   )
 }
