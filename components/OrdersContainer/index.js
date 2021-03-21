@@ -27,15 +27,18 @@ const OrdersContainer = styled.article`
             button{
                 color: #5a6b86;
                 background-color: white; 
-                height: 150%; 
+                height: 300%; 
                 border: none;
+                font-family: sans-serif; 
+                font-weight: bold; 
+                font-size: 1rem; 
                 border-radius: 10px; 
                 transition: 0.5s ease;
                 border: 1.5px solid white;
                 cursor: pointer;
                 &:hover{
                     color: white;
-                    background-color: #5a6b86;
+                    background-color: #5A8186;
                 }
             }
         }

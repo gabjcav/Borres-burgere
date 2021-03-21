@@ -1,6 +1,5 @@
 import CartContainer from '../components/CartContainer'
 import { useCart } from '../helper/CartContext'
-import Link from 'next/link'
 import { useAuth } from '../helper/context'
 import { useRouter } from 'next/router'
 import { firebaseInstance } from '../config/firebase'
@@ -15,7 +14,7 @@ const Cart = () => {
   if (!isAuthenticated) {
     router.push('/login')
   }
-  console.log(user, loading, isAuthenticated)
+
   function handleRemove(id) {
     cart.setProductLines(cart.productLines.filter((item) => item.id !== id))
   }
@@ -27,9 +26,8 @@ const Cart = () => {
       .set({
         customer: user.uid,
         items: [...cart.productLines],
-        completed: false,
+        completed: null,
         paid: true,
-        status: 'preparing',
         orderid: Math.floor(Math.random() * 100),
         time: Date().toLocaleString().slice(16, 24),
         totalprice: cart.total,
@@ -37,7 +35,7 @@ const Cart = () => {
       .then(() => {
         console.log('Order added to database')
         cart.setProductLines([])
-        router.push('/receipt')
+        router.push('/order-status')
       })
       .catch((error) => {
         console.log(error)
@@ -48,10 +46,8 @@ const Cart = () => {
     <CartContainer>
       <h1>Handlekurv ({cart.quantity})</h1>
       <div className="line"></div>
-
       <ul>
         {cart.productLines.map((item) => {
-          console.log(cart.productLines)
           return (
             <>
               <li>
@@ -73,9 +69,15 @@ const Cart = () => {
         >
           Bestill
         </button>
-        <Link href="/">
-          <button>Tilbake</button>
-        </Link>
+
+        <button
+          onClick={() => {
+            router.back()
+          }}
+        >
+          Tilbake
+        </button>
+
         <button
           onClick={() => {
             cart.setProductLines([])

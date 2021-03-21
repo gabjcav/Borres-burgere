@@ -34,7 +34,7 @@ const InfoContainer = styled.article`
       border: none;
       font-size: 1.3rem;
       cursor: pointer;
-      -webkit-box-shadow: 2px 2px 10px 2px #9b9b9b;
+      -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.47) #9b9b9b;
       padding: 10px;
       font-family: 'Impact', sans-serif;
       letter-spacing: 2px;
@@ -44,6 +44,27 @@ const InfoContainer = styled.article`
         color: #5a6b86;
         background-color: white;
       }
+    }
+  }
+  @media (max-width: 800px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 1rem;
+    min-height: 50%;
+    #cart-length {
+      font-size: 0.7rem;
+      font-family: sans-serif;
+    }
+    button {
+      height: 20px;
+      border-radius: 10px;
+      background-color: #5a6b86;
+      color: white;
+      border: none;
+      font-size: 0.8rem;
+      cursor: pointer;
+      -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.47) #9b9b9b;
+      font-family: sans-serif;
     }
   }
 `

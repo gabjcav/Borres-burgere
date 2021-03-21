@@ -3,7 +3,6 @@ import Link from 'next/link'
 // import logo  from '../../public/img/logo.png';
 import Image from 'next/image'
 import { useAuth } from '../../helper/context'
-import { useRouter } from 'next/router'
 
 export const NavContainer = styled.nav`
   width: 350px;
@@ -24,7 +23,6 @@ export const NavContainer = styled.nav`
     font-size: 2.5rem;
     margin-bottom: 30px;
     padding: 10px;
-
     :nth-child(1) {
       :hover {
         color: #b6b6b6;
@@ -85,6 +83,42 @@ export const NavContainer = styled.nav`
     font-size: 1.7rem;
     margin-top: 100px;
   }
+  #bottom-info {
+    margin-bottom: 5%;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    margin-top: 0;
+    .line {
+      display: none;
+    }
+    ul {
+      margin-top: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    li {
+      display: inline-block;
+      font-size: 1rem;
+      font-family: sans-serif;
+      margin-bottom: 0;
+
+      .link {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+    }
+    #bottom-info {
+      margin-bottom: 0;
+      font-size: 0.5rem;
+      display: flex;
+      flex-direction: row;
+    }
+  }
 `
 
 const NavBar = () => {
@@ -96,7 +130,7 @@ const NavBar = () => {
         <li>
           <div className="logo-container">
             <Link href="/">
-              <Image className="logo" src="/img/logofinal.svg" width="100%" height="100%" />
+              <img className="logo" src="/img/logofinal.svg" />
             </Link>
           </div>
 
@@ -104,27 +138,56 @@ const NavBar = () => {
         </li>
 
         <li>
-          <Link href="/burgers">Burgere</Link>
+          <span className="link">
+            <Link href="/burgers">Burgere</Link>
+          </span>
         </li>
         <li>
-          <Link href="/chicken-burgers">Kyllingburgere</Link>
+          <span className="link">
+            <Link href="/chicken-burgers">Kyllingburgere</Link>
+          </span>
         </li>
         <li>
-          <Link href="/fries">Fries</Link>
+          <span className="link">
+            <Link href="/fries">Fries</Link>
+          </span>
         </li>
         <li>
-          <Link href="/drinks">Drikke</Link>
+          <span className="link">
+            <Link href="/drinks">Drikke</Link>
+          </span>
           <div className="line"></div>
         </li>
-        <li>
-          <Link href="/cart">
-            <span id="nav-cart">Handlekurv</span>
-          </Link>
-        </li>
-        <li>
-          {isAuthenticated && <Link href="/profile">Profil</Link>}
-          {!isAuthenticated && <Link href="/login">Logg inn</Link>}
-        </li>
+        <span id="bottom-info">
+          {isAuthenticated && (
+            <li>
+              <span className="link">
+                <Link href="/cart">
+                  <span id="nav-cart">Handlekurv</span>
+                </Link>
+              </span>
+            </li>
+          )}
+          <li>
+            {isAuthenticated && (
+              <span className="link">
+                <Link href="/order-status">Status</Link>
+              </span>
+            )}
+          </li>
+          <li>
+            {isAuthenticated && (
+              <span className="link">
+                <Link href="/profile">Profil</Link>
+              </span>
+            )}
+            {!isAuthenticated && (
+              <span className="link">
+                <Link href="/login">Logg inn</Link>
+              </span>
+            )}
+          </li>
+        </span>
       </ul>
     </NavContainer>
   )
