@@ -15,11 +15,9 @@ const NewUser = () => {
 
     try {
       await firebaseInstance.auth().createUserWithEmailAndPassword(email, password)
-      console.log('Bruker laget')
       router.push('/login')
     } catch (error) {
       setError(error.message)
-      console.log('error;', error)
     }
   }
 

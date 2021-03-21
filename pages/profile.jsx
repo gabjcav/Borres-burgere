@@ -9,14 +9,9 @@ const Profile = () => {
   const userContext = useAuth()
   const { user, loading, isAuthenticated } = useAuth()
 
-  useEffect(() => {
-    console.log('The context', userContext)
-  }, [userContext])
-
   const handleSignout = async () => {
     await firebaseInstance.auth().signOut()
     router.push('/')
-    console.log('logget ut')
   }
 
   return (

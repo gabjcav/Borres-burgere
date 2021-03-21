@@ -24,8 +24,6 @@ const Burgers = () => {
     return <MenuSkeleton />
   }
 
-  console.log(cart)
-
   const renderData = () => {
     const cartLength = cart.productLines.length
     return (

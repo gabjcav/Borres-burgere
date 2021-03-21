@@ -26,18 +26,11 @@ const Kitchen = () => {
   }, [])
 
   function handleCompleteOrder(ordre) {
-    console.log('ordre-id', ordre.id)
     const Collection = firebaseInstance.firestore().collection('orders')
     let document = Collection.doc(`${ordre.id}`)
-    console.log('data.id', ordre.id)
-    return document
-      .update({ completed: new Date().toISOString() })
-      .then(() => {
-        console.log('order completed')
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    return document.update({ completed: new Date().toISOString() }).catch((error) => {
+      console.log(error)
+    })
   }
 
   return (

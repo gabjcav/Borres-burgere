@@ -20,7 +20,7 @@ const Fries = () => {
       .then((result) => setFries(result.docs))
       .catch((error) => setFbError(error))
   }, [])
-  console.log(fries)
+
   const renderSkeleton = () => {
     return <MenuSkeleton />
   }

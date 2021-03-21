@@ -19,8 +19,8 @@ const OrderStatus = () => {
     const completedOrders = firebaseInstance
       .firestore()
       .collection('orders')
-      //remove from const after 1 min
-      .where('completed', '>', addMinutes(new Date(), -1).toISOString())
+      //remove from const after 3 min
+      .where('completed', '>', addMinutes(new Date(), -3).toISOString())
     // .startAt(addMinutes(new Date(), -15))
 
     completedOrders.onSnapshot((querySnapshot) => {

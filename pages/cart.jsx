@@ -11,9 +11,9 @@ const Cart = () => {
     return <>Loading.....</>
   }
 
-  if (!isAuthenticated) {
-    router.push('/login')
-  }
+  // if (!isAuthenticated) {
+  //   router.push('/login')
+  // }
 
   function handleRemove(id) {
     cart.setProductLines(cart.productLines.filter((item) => item.id !== id))
@@ -33,7 +33,6 @@ const Cart = () => {
         totalprice: cart.total,
       })
       .then(() => {
-        console.log('Order added to database')
         cart.setProductLines([])
         router.push('/order-status')
       })

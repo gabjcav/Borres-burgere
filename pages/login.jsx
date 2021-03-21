@@ -17,11 +17,9 @@ const Login = () => {
 
     try {
       await firebaseInstance.auth().signInWithEmailAndPassword(email, password)
-      console.log('Logget inn')
       router.push('/profile')
     } catch (error) {
       setError(error.message)
-      console.log('error;', error)
     }
   }
 
