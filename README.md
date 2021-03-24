@@ -12,6 +12,6 @@ yarn dev
 
 Open https://localhost:3000 to view page.
 
-This is a an automated ordering system med with NextJs using Firestore from Google Firebase.
+This is a an automated ordering system made with NextJs using Firestore from Google Firebase.
 
 Create a user before trying to make an order.
