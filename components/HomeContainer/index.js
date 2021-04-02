@@ -35,5 +35,10 @@ const HomeContainer = styled.main`
       background-color: white;
     }
   }
+  @media (max-width: 600px) {
+    #login-btn {
+      width: 20%; 
+    }
+  }
 `
 export default HomeContainer;

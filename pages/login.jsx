@@ -44,7 +44,13 @@ const Login = () => {
           <button>Ny bruker</button>
         </Link>
         <Link href="/">
-          <button>Tilbake</button>
+          <button
+            onClick={() => {
+              router.back()
+            }}
+          >
+            Tilbake
+          </button>
         </Link>
       </div>
 
