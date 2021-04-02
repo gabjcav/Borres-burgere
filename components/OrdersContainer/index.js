@@ -44,6 +44,16 @@ const OrdersContainer = styled.article`
         }
     }
     
+    @media (max-width: 600px) {
+        min-width: 50%; 
+        max-width: 70%; 
+        #container {
+            display: flex;
+            flex-direction: column; 
+            gap: 20px; 
+            font-size: 2rem; 
+        }
+    }
 `
 
 export default OrdersContainer;

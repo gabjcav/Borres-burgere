@@ -10,9 +10,11 @@ const MainContainer = styled.main`
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   text-align: center;
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
     margin-left: 0;
     margin-top: 20%;
+    width: 100%;
+    height: 100%;
     grid-template-columns: repeat(1, 2fr);
   }
 `

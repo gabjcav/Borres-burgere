@@ -11,7 +11,7 @@ const HomeContainer = styled.main`
   gap: 15%;
   h2{
       background-color: #5a6b86; 
-      padding: 1%; 
+      padding: 3%; 
       border-radius: 3%; 
       color: white; 
   } 

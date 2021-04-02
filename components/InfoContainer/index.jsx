@@ -46,13 +46,16 @@ const InfoContainer = styled.article`
       }
     }
   }
-  @media (max-width: 800px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 1rem;
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
     min-height: 50%;
+    margin: 20% auto;
+    margin-bottom: 20%;
+    padding: 5px;
     #cart-length {
-      font-size: 0.7rem;
+      font-size: 1.3rem;
       font-family: sans-serif;
     }
     button {

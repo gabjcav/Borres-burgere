@@ -30,6 +30,31 @@ const MenuSkeletonStyle = styled.div`
     #cart-length {
         font-size: 1.2rem;
     }
+
+    @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    min-height: 50%;
+    margin: 20% auto;
+
+
+    #cart-length {
+      font-size: 1.3rem;
+      font-family: sans-serif;
+    }
+    button {
+      height: 20px;
+      border-radius: 10px;
+      background-color: #5a6b86;
+      color: white;
+      border: none;
+      font-size: 0.8rem;
+      cursor: pointer;
+      -webkit-box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.47) #9b9b9b;
+      font-family: sans-serif;
+    }
+  }
 `
 
 

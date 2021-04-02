@@ -74,6 +74,16 @@ margin: 0 auto;
         }
         }
     
+    @media (max-width: 600px) {
+        .ordre-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            width: 600px; 
+            height: 200%;
+            z-index: 2; 
+        }
+    }
 `
 
 export default RestaurantContainer

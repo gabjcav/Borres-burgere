@@ -23,41 +23,14 @@ export const NavContainer = styled.nav`
     font-size: 2.5rem;
     margin-bottom: 30px;
     padding: 10px;
-    :nth-child(1) {
+    :nth-child(n + 1) {
       :hover {
         color: #b6b6b6;
       }
     }
-    :nth-child(2) {
-      :hover {
-        color: #b6b6b6;
-      }
-    }
-    :nth-child(3) {
-      :hover {
-        color: #b6b6b6;
-      }
-    }
-    :nth-child(4) {
-      :hover {
-        color: #b6b6b6;
-      }
-    }
-    :nth-child(5) {
-      :hover {
-        color: #b6b6b6;
-      }
-    }
+
     :nth-child(6) {
       margin-top: 400px;
-      :hover {
-        color: #b6b6b6;
-      }
-    }
-    :nth-child(7) {
-      :hover {
-        color: #b6b6b6;
-      }
     }
   }
 
@@ -122,7 +95,7 @@ export const NavContainer = styled.nav`
 `
 
 const NavBar = () => {
-  const { user, loading, isAuthenticated } = useAuth()
+  const { isAuthenticated } = useAuth()
 
   return (
     <NavContainer>

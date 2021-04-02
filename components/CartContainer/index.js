@@ -110,5 +110,9 @@ const CartContainer = styled.div`
         
     }
     
+    @media (max-width: 600px) {
+        width: 80%; 
+        height: 100vh; 
+    }
 `
 export default CartContainer; 
