@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 import InfoContainer from '../components/InfoContainer'
 import queryFirebase from '../config/firebase'
 import MenuSkeleton from '../components/MenuSkeleton'
-import { useCart } from '../helper/CartContext'
+import { useCart } from '../helper/CartContext.js'
 import { useAuth } from '../helper/context'
 import { useRouter } from 'next/router'
 const Burgers = () => {
-  const { user, loading, isAuthenticated } = useAuth()
+  const { isAuthenticated } = useAuth()
   const router = useRouter()
   const cart = useCart()
   const [burgers, setBurgers] = useState([])

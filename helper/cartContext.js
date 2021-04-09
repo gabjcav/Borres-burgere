@@ -20,6 +20,7 @@ export const Cart = ({ children }) => {
     const addProductLine = (product) => {
         setProductLines([...productLines, product])
     }
+
     //Oppdatere total hver gang productlines oppdateres
     useEffect(() => {
         //0 på slutten gjør at prev blir 0
@@ -27,9 +28,10 @@ export const Cart = ({ children }) => {
             return prev + curr.price;
             
         }, 0); 
+
         setTotal(total); 
         setQuantity(productLines.length);
-        console.log(productLines); 
+        
     }, [productLines])
     
     return(

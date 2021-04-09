@@ -36,3 +36,5 @@ yarn-error.log*
 secret.json
 
 .prettierrc
+# Local Netlify folder
+.netlify
