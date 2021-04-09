@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import queryFirebase from '../config/firebase'
 import InfoContainer from '../components/InfoContainer'
 import MenuSkeleton from '../components/MenuSkeleton'
-import { useCart } from '../helper/CartContext.js'
+import { useCart } from '../helper/cartContext.js'
 import { useAuth } from '../helper/context'
 import { useRouter } from 'next/router'
 

@@ -1,5 +1,5 @@
 import CartContainer from '../components/CartContainer'
-import { useCart } from '../helper/CartContext.js'
+import { useCart } from '../helper/cartContext.js'
 import { useAuth } from '../helper/context'
 import { useRouter } from 'next/router'
 import { firebaseInstance } from '../config/firebase'
