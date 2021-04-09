@@ -3,7 +3,7 @@ import NavBar from '../components/NavBar';
 import NavContainer from '../components/NavBar';
 import MainContainer from '../components/MainContainer';
 import { AuthProvider } from '../helper/context';
-import { Cart } from '../helper/CartContext.js';
+import { Cart } from '../helper/cartContext.js';
 import { ThemeProvider } from 'styled-components';
 import theme from '../helper/theme'; 
 
