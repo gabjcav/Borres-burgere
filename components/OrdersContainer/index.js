@@ -5,6 +5,11 @@ const OrdersContainer = styled.article`
     min-width: 50%; 
     max-width: 80%; 
     margin: 0 auto; 
+    ul{
+        list-style: none; 
+        text-align: center; 
+        padding: 0; 
+    }
     h1{
         margin-bottom: 20%; 
         margin-top: 15%; 

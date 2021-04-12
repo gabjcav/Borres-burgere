@@ -42,10 +42,16 @@ const Kitchen = () => {
             {orders?.map((ordre) => {
               const o = ordre
               const orderId = o.orderid
+              const items = o.items
               return (
                 <div className="info" key={ordre.id}>
                   <p>Ordrenr: {orderId}</p>
-                  <p>Info: {o.items.name}</p>
+                  <ul>
+                    {items.map((item) => {
+                      console.log('items:', item.name)
+                      return <li>{item.name}</li>
+                    })}
+                  </ul>
                   <p>Tid: {o.time}</p>
                   <p>Total: {o.totalprice},-</p>
                   <button key={ordre.id} onClick={() => handleCompleteOrder(ordre)}>
