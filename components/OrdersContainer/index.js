@@ -19,7 +19,10 @@ const OrdersContainer = styled.article`
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 5%; 
+         
         .info{
+            max-height: 500px;
+            overflow-y: auto; 
             -webkit-box-shadow: 7px 5px 4px -3px rgba(0,0,0,0.30); 
             box-shadow: 7px 5px 4px -3px rgba(0,0,0,0.30);
             background-color: #5a6b86;
@@ -32,7 +35,7 @@ const OrdersContainer = styled.article`
             button{
                 color: #5a6b86;
                 background-color: white; 
-                height: 300%; 
+                height: 50px; 
                 border: none;
                 font-family: sans-serif; 
                 font-weight: bold; 
